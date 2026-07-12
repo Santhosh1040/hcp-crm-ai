@@ -8,7 +8,7 @@ The application supports creating and editing interactions, adding materials and
 
 ## Live Application
 
-Frontend: hcp-crm-ai-git-main-santhoshs-projects-1fd6dff9.vercel.app
+Frontend: https://hcp-crm-ai-git-main-santhoshs-projects-1fd6dff9.vercel.app
 
 Backend : https://hcp-crm-ai-production.up.railway.app
 
