@@ -1,26 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
-
-import {
-  updateInteractionField,
-} from "../../store/interactionSlice";
+import { useSelector } from "react-redux";
 
 
 function BasicDetails() {
-  const dispatch = useDispatch();
-
   const interaction = useSelector(
     (state) => state.interaction
   );
-
-
-  const updateField = (field, value) => {
-    dispatch(
-      updateInteractionField({
-        field,
-        value,
-      })
-    );
-  };
 
 
   return (
@@ -35,12 +19,7 @@ function BasicDetails() {
             type="text"
             placeholder="Search or select HCP..."
             value={interaction.hcp_name || ""}
-            onChange={(event) =>
-              updateField(
-                "hcp_name",
-                event.target.value
-              )
-            }
+            readOnly
           />
         </div>
 
@@ -53,12 +32,7 @@ function BasicDetails() {
               interaction.interaction_type ||
               "Meeting"
             }
-            onChange={(event) =>
-              updateField(
-                "interaction_type",
-                event.target.value
-              )
-            }
+            disabled
           >
             <option value="Meeting">
               Meeting
@@ -87,12 +61,7 @@ function BasicDetails() {
             value={
               interaction.interaction_date || ""
             }
-            onChange={(event) =>
-              updateField(
-                "interaction_date",
-                event.target.value
-              )
-            }
+            readOnly
           />
         </div>
 
@@ -105,12 +74,7 @@ function BasicDetails() {
             value={
               interaction.interaction_time || ""
             }
-            onChange={(event) =>
-              updateField(
-                "interaction_time",
-                event.target.value
-              )
-            }
+            readOnly
           />
         </div>
 
@@ -126,15 +90,7 @@ function BasicDetails() {
           value={
             (interaction.attendees || []).join(", ")
           }
-          onChange={(event) =>
-            updateField(
-              "attendees",
-              event.target.value
-                .split(",")
-                .map((name) => name.trim())
-                .filter(Boolean)
-            )
-          }
+          readOnly
         />
       </div>
 

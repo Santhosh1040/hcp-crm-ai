@@ -1,26 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
-
-import {
-  updateInteractionField,
-} from "../../store/interactionSlice";
+import { useSelector } from "react-redux";
 
 
 function TopicsSection() {
-  const dispatch = useDispatch();
-
   const topicsDiscussed = useSelector(
     (state) => state.interaction.topics_discussed
   );
-
-
-  const handleChange = (event) => {
-    dispatch(
-      updateInteractionField({
-        field: "topics_discussed",
-        value: event.target.value,
-      })
-    );
-  };
 
 
   return (
@@ -33,7 +17,7 @@ function TopicsSection() {
           rows="4"
           placeholder="Enter key discussion points..."
           value={topicsDiscussed || ""}
-          onChange={handleChange}
+          readOnly
         />
 
         <button

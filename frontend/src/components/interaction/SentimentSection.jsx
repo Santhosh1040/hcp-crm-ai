@@ -1,26 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
-
-import {
-  updateInteractionField,
-} from "../../store/interactionSlice";
+import { useSelector } from "react-redux";
 
 
 function SentimentSection() {
-  const dispatch = useDispatch();
-
   const sentiment = useSelector(
     (state) => state.interaction.sentiment
   );
-
-
-  const updateSentiment = (value) => {
-    dispatch(
-      updateInteractionField({
-        field: "sentiment",
-        value,
-      })
-    );
-  };
 
 
   return (
@@ -39,9 +23,7 @@ function SentimentSection() {
               name="sentiment"
               value="Positive"
               checked={sentiment === "Positive"}
-              onChange={() =>
-                updateSentiment("Positive")
-              }
+              readOnly
             />
 
             <span>🙂 Positive</span>
@@ -54,9 +36,7 @@ function SentimentSection() {
               name="sentiment"
               value="Neutral"
               checked={sentiment === "Neutral"}
-              onChange={() =>
-                updateSentiment("Neutral")
-              }
+              readOnly
             />
 
             <span>😐 Neutral</span>
@@ -69,9 +49,7 @@ function SentimentSection() {
               name="sentiment"
               value="Negative"
               checked={sentiment === "Negative"}
-              onChange={() =>
-                updateSentiment("Negative")
-              }
+              readOnly
             />
 
             <span>☹️ Negative</span>

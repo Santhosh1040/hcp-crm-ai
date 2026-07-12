@@ -1,13 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
-
-import {
-  updateInteractionField,
-} from "../../store/interactionSlice";
+import { useSelector } from "react-redux";
 
 
 function FollowUpSection() {
-  const dispatch = useDispatch();
-
   const followUpActions = useSelector(
     (state) => state.interaction.follow_up_actions
   );
@@ -16,19 +10,6 @@ function FollowUpSection() {
     (state) =>
       state.interaction.ai_suggested_follow_ups
   );
-
-
-  const handleFollowUpChange = (event) => {
-    const actions = event.target.value
-      .split("\n");
-
-    dispatch(
-      updateInteractionField({
-        field: "follow_up_actions",
-        value: actions,
-      })
-    );
-  };
 
 
   return (
@@ -42,7 +23,7 @@ function FollowUpSection() {
           rows="4"
           placeholder="Enter next steps or tasks..."
           value={(followUpActions || []).join("\n")}
-          onChange={handleFollowUpChange}
+          readOnly
         />
 
       </div>

@@ -1,26 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
-
-import {
-  updateInteractionField,
-} from "../../store/interactionSlice";
+import { useSelector } from "react-redux";
 
 
 function OutcomesSection() {
-  const dispatch = useDispatch();
-
   const outcomes = useSelector(
     (state) => state.interaction.outcomes
   );
-
-
-  const handleChange = (event) => {
-    dispatch(
-      updateInteractionField({
-        field: "outcomes",
-        value: event.target.value,
-      })
-    );
-  };
 
 
   return (
@@ -33,7 +17,7 @@ function OutcomesSection() {
           rows="4"
           placeholder="Key outcomes or agreements..."
           value={outcomes || ""}
-          onChange={handleChange}
+          readOnly
         />
 
       </div>
