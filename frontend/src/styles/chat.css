@@ -1,0 +1,146 @@
+.ai-assistant {
+  width: 100%;
+  height: 100%;
+
+  /* Critical for flex scrolling */
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+  border: 1px solid #e4e7eb;
+  border-radius: 14px;
+
+  padding: 26px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+  /*
+    Critical:
+    prevents chat content from increasing
+    the height of the entire assistant panel.
+  */
+  overflow: hidden;
+}
+
+.assistant-header {
+  /* Header must never shrink */
+  flex-shrink: 0;
+
+  padding-bottom: 18px;
+  border-bottom: 1px solid #eceff2;
+}
+
+.assistant-header h2 {
+  color: #1683e8;
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.assistant-header p {
+  color: #6f7780;
+  font-size: 14px;
+}
+
+/*
+  Only this section scrolls when messages increase.
+*/
+.chat-messages {
+  flex: 1;
+
+  /* Critical for overflow inside a flex container */
+  min-height: 0;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 28px 0;
+
+  /* Prevent horizontal expansion from long content */
+  overflow-wrap: anywhere;
+}
+
+.chat-message {
+  padding: 16px;
+  border-radius: 10px;
+
+  font-size: 14px;
+  line-height: 1.6;
+
+  margin-bottom: 14px;
+
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.chat-message.info {
+  background: #e5f8fc;
+}
+
+.chat-message.user {
+  background: #f1f2f4;
+  border-left: 4px solid #1683e8;
+}
+
+.chat-message.assistant {
+  background: #e8f8e9;
+  border: 1px solid #bce8bf;
+}
+
+/*
+  Input remains permanently visible at the bottom.
+*/
+.chat-input-area {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+
+  padding-top: 18px;
+  border-top: 1px solid #eceff2;
+
+  background: #ffffff;
+}
+
+.chat-input-area textarea {
+  flex: 1;
+  min-width: 0;
+
+  min-height: 52px;
+  max-height: 130px;
+
+  resize: vertical;
+
+  border: 1px solid #d9dde3;
+  border-radius: 12px;
+
+  padding: 14px;
+
+  outline: none;
+}
+
+.chat-input-area textarea:focus {
+  border-color: #1683e8;
+}
+
+.log-button {
+  flex-shrink: 0;
+
+  min-width: 72px;
+  height: 52px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #1683e8;
+  color: #ffffff;
+
+  font-weight: 700;
+}
+
+.log-button:hover {
+  background: #0d73ce;
+}
+
