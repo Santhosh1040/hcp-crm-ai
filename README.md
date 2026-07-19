@@ -1,4 +1,4 @@
-# AI-First CRM HCP Interaction Logger
+# AI Healthcare CRM Assistant
 
 A full-stack CRM application for logging Healthcare Professional (HCP) interactions through an AI assistant.
 
